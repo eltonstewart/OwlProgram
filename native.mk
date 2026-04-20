@@ -36,7 +36,7 @@ CPPFLAGS    += -I$(DAISYSP)/Utility
 CPPFLAGS    += -ILibraries -ILibraries/KissFFT
 CPPFLAGS    += -D__PROGRAM_START=1 # prevent compilation of __cmsis_start function
 CPPFLAGS    += "-DPATCHNAME=\"$(PATCHNAME)\""
-CXXFLAGS     = -std=gnu++17
+CXXFLAGS     = -std=gnu++17 -include cstddef
 LDLIBS       = -lm
 LDFLAGS      = -Wl,--gc-sections
 
