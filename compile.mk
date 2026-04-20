@@ -107,7 +107,8 @@ CPPFLAGS += -I$(DAISYSP)/Synthesis
 CPPFLAGS += -I$(DAISYSP)/Utility
 CPPFLAGS += -DARM_CORTEX
 CPPFLAGS += -DEXTERNAL_SRAM
-CPPFLAGS += -nostdlib -nostartfiles -fno-builtin -ffreestanding
+CPPFLAGS += -nostdlib -nostartfiles -fno-builtin
+# CPPFLAGS += -nostdlib -nostartfiles -fno-builtin -ffreestanding
 CPPFLAGS += -mtune=cortex-m4
 # CPPFLAGS += -mtune=cortex-m7
 CPPFLAGS += -fpic

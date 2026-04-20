@@ -426,7 +426,7 @@ void FloatArray::gainToDecibel(FloatArray destination){
 void FloatArray::decibelToGain(FloatArray destination){
   ASSERT(destination.getSize()>=size, "Wrong array size");
   for(size_t i=0; i<size; i++)
-    destination[i] = exp10f(data[i]*0.05);
+    destination[i] = powf(10.0f, data[i]*0.05f);
 }
 
 void FloatArray::ramp(float from, float to){

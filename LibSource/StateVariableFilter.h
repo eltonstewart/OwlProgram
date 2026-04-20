@@ -73,7 +73,7 @@ public:
   
   void setBell(float fc, float q, float gain){
     const float k = kvalue(fc, q);
-    const float A = exp10f(gain/40.);
+    const float A = powf(10.f, gain/40.f);
     m0 = 1.0f;
     m1 = k * (A * A - 1.);
     m2 = 0.0f;
@@ -81,7 +81,7 @@ public:
   
   void setLowShelf(float fc, float q, float gain){
     const float k = kvalue(fc, q);
-    const float A = exp10f(gain/40.);
+    const float A = powf(10.f, gain/40.f);
     m0 = 1.0f;
     m1 = k * (A - 1.0f);
     m2 = (A * A - 1.0f);
@@ -89,7 +89,7 @@ public:
 
   void setHighShelf(float fc, float q, float gain){
     const float k = kvalue(fc, q);
-    const float A = exp10f(gain/40.);
+    const float A = powf(10.f, gain/40.f);
     m0 = A * A;
     m1 = k * (1.0f - A) * A;
     m2 = (1.0f - A * A);
