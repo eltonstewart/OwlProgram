@@ -2,6 +2,7 @@
 #include "basicmaths.h"
 #include "message.h"
 #include <cstring>
+#include <cfloat>
 
 #ifdef ARM_CORTEX
 FloatMatrix::FloatMatrix(){
@@ -102,7 +103,7 @@ void FloatMatrix::softmax(FloatMatrix destination){
   float* src = getData();
   float* dest = destination.getData();
   size_t size = getSize();
-  float m = -INFINITY;
+  float m = -FLT_MAX;
   for(size_t i = 0; i < size; i++) {
       if(src[i] > m)
 	m = src[i];
