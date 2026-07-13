@@ -231,5 +231,9 @@ $(BUILD)/%.s: $(BUILD)/%.elf
 $(BUILD)/%.map: $(BUILD)/%.elf
 	@$(OBJDUMP) -S $< > $@
 
-# pull in dependencies
--include $(OBJS:.o=.d) $(SOLO_OBJS:.o=.d) $(MULTI_OBJS:.o=.d)
+# Pull in both library and patch dependencies. PatchProgram.o includes the
+# generated registerpatch header, which includes the selected patch and all of
+# its nested headers. Without PATCH_OBJS here, editing a header under
+# PATCHSOURCE leaves patch.elf/patch.bin stale even though `make load` prints
+# "Building patch".
+-include $(OBJS:.o=.d) $(PATCH_OBJS:.o=.d) $(SOLO_OBJS:.o=.d) $(MULTI_OBJS:.o=.d)
